@@ -1,19 +1,16 @@
 import React from 'react';
-import { CardContainer, TextContainer } from './VideoCard.styles';
-import { Thumbnail, VideoInformation } from '../../atoms';
+import { CardContainer, TextContainer, ThumbnailImg, VideoTitle } from './VideoCard.styles';
 
-function VideoCard({ videos }) {
-  return (
-    <CardContainer>
-      <Thumbnail bg={<img src={videos.snippet.thumbnails.medium.url} />} />
-      <TextContainer>
-        <VideoInformation
-          title={videos.snippet.title}
-          description={videos.snippet.description}
-        />
-      </TextContainer>
-    </CardContainer>
-  );
-}
+export const VideoCard = (props) => (
+  <CardContainer>
+    <ThumbnailImg>
+    <img src={`https://i4.ytimg.com/vi/${props.video.guid.split(':')[2]}/mqdefault.jpg`} />
+    </ThumbnailImg>
+    <TextContainer>
+        <VideoTitle>{props.video.title}</VideoTitle>
+    </TextContainer>
+
+  </CardContainer>
+);
 
 export default VideoCard;

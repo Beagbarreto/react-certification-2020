@@ -6,7 +6,7 @@ export const Home = styled.section`
   padding-right: 1rem;
   padding-left: 1rem;
 `;
-export const VideoList = styled.section`
+export const VideoListSection = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

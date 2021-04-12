@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const SwitchInput = styled.input`
+  display: block;
   height: 0;
   width: 0;
   visibility: hidden;
@@ -8,6 +9,7 @@ export const SwitchInput = styled.input`
 
 export const SwitchLabel = styled.label`
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   cursor: not-allowed;

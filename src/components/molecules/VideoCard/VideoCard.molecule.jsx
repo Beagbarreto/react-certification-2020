@@ -3,11 +3,11 @@ import { CardContainer, TextContainer, ThumbnailImg, VideoTitle } from './VideoC
 
 export const VideoCard = (props) => (
   <CardContainer>
-    <ThumbnailImg>
-    <img src={`https://i4.ytimg.com/vi/${props.video.guid.split(':')[2]}/mqdefault.jpg`} />
+    <ThumbnailImg> 
+      <img src={props.video.snippet.thumbnails.medium.url} />
     </ThumbnailImg>
     <TextContainer>
-        <VideoTitle>{props.video.title}</VideoTitle>
+        <VideoTitle>{props.video.snippet.title}</VideoTitle>
     </TextContainer>
 
   </CardContainer>

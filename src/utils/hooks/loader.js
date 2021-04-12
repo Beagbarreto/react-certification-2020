@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const LoaderContext = createContext();
 
 export const LoaderContextProvider = () => {
-  const [loading, setLoading] = setState(falase);
+  const [loading, setLoading] = setState(false);
 
   const hideLoader = () => {
     setLoading(false);

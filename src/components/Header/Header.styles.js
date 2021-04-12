@@ -7,7 +7,6 @@ export const Header = styled.header`
   min-height: 70px;
   padding: 17px 17px;
   background: linear-gradient(#beeaf5, #80d9df);
-  margin-bottom: 1rem;
   justify-content: space-between;
   margin-bottom: 2.5rem;
 `;

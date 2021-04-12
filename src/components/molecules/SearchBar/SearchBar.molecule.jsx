@@ -1,14 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState, useContext } from 'react';
+import { SearchContext } from '../../../store/Search/SearchProvider';
 import { Button, Form, Input, SearchContainer, SearchIcon } from './SearchBar.styles';
 
 const SearchBar = ({setQuery}) => {
   const [ term, setTerm ] = useState('');
   
-const searchVideos = e => {
+const handleSearchVideos = e => {
   e.preventDefault();
 
   
 };
+
+// const theTerm = useContext(SearchContext);
 
   return (
     <SearchContainer>

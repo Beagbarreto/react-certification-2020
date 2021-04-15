@@ -1,5 +1,5 @@
 import SearchBar from './SearchBar/SearchBar.molecule';
-import HorizontalVideoCard from './HorizontalVideoCard/HorizontalVideoCard.molecule';
+import LongVideoCard from './LongVideoCard/LongVideoCard.molecule';
 import VideoCard from './VideoCard/VideoCard.molecule';
 
-export { SearchBar, HorizontalVideoCard, VideoCard };
+export { SearchBar, LongVideoCard, VideoCard };

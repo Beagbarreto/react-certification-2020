@@ -31,7 +31,7 @@ export const MenuIcon = styled(VscMenu)`
   margin-left: 30px;
   color: #6c56a3;
   border: none;
-  cursor: not-allowed;
+  cursor: default;
 `;
 
 export const LoginContainer = styled.div`

@@ -4,9 +4,11 @@ export const CardContainer = styled.div`
   display: block;
   flex-direction: column;
   height: fit-content;
-  width: 290px;
-  height: 237px;
-   background-color: rgba(185, 134, 217, 0.2);
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  // width: 290px;
+  // height: 237px;
+  background-color: rgba(185, 134, 217, 0.2);
   border-radius: 6px;
   margin-bottom: 30px;
   overflow: hidden;
@@ -34,7 +36,7 @@ export const TextContainer = styled.div`
 
 export const ThumbnailImg = styled.div`
   display: block;
-  height: 150px;
+  height: 145px;
   width: 100%;
   background: url(${(props) => props.bg}) no-repeat;
   background-size: cover;

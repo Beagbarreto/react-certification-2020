@@ -5,7 +5,7 @@ import { Consumer } from '../../utils/hooks/context';
 import getSearch from '../../utils/hooks/getSearchedVideos';
 import { LoaderContext } from '../../utils/hooks/loader';
 
-const YoutubeVideos = ({videoId}) => {
+const YoutubeVideos = ({videoId, handleEntry}) => {
   const [ videos ] = getSearch(videoId);
   const { hideLoader, showLoader } = useContext(LoaderContext);
 
@@ -20,10 +20,14 @@ const YoutubeVideos = ({videoId}) => {
         // } else {
           //hideLoader();s
 
-        return (
-          
+        return (  
           <VideoList>
-            {videos.map(video => <VideoCard key={video.etag} video={video} />)}
+            {videos.map(video => 
+              <VideoCard
+                key={video.etag}
+                video={video}
+              />
+            )}
           </VideoList>
         )  
         //}    

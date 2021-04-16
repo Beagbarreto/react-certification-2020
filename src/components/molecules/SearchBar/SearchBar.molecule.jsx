@@ -6,9 +6,9 @@ import { Button, Form, Input, SearchContainer, SearchIcon } from './SearchBar.st
 const SearchBar = () => {
   const [ query, setQuery ] = useState('');
 
-const search = e => {
+const handleSearch = e => {
   e.preventDefault();
-  useFetchData(query).then(setVideo);
+  useFetchData(query).then(setQuery);
 }
 
 // const theTerm = useContext(SearchContext);
@@ -16,7 +16,7 @@ const search = e => {
 
   return (
     <SearchContainer>
-      <Form onSubmit={search}>
+      <Form onSubmit={handleSearch}>
         <Input 
           type="text"
           id="search"

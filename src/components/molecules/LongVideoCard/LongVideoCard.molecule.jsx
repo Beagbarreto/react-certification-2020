@@ -3,23 +3,23 @@ import { Link } from 'react-router-dom';
 import { Channel, ChannelBlock, LongCard, Title, Text, TextContainer, ThumbnailImg } from './LongVideoCard.styles';
 import { Avatar } from '../../atoms';
 
-const LongVideoCard = (props) => {
+const LongVideoCard = ({ video }) => {
 
   return (
     <LongCard>
-      <Link to={`/video/${props.video.id.videoId}`}> 
+      <Link to={`/video/${video.id.videoId}`}> 
         <ThumbnailImg>
-          <img src={props.video.snippet.thumbnails.medium.url} 
-          alt={props.video.snippet.title}
+          <img src={video.snippet.thumbnails.medium.url} 
+          alt={video.snippet.title}
           />
         </ThumbnailImg>
         <TextContainer>
-          <Title>{props.video.snippet.title}Title</Title>
+          <Title>{video.snippet.title}</Title>
           <ChannelBlock>
             <Avatar />
-            <Channel>{props.video.snippet.channelTitle}Channel</Channel>
+            <Channel>{video.snippet.channelTitle}</Channel>
           </ChannelBlock>
-          <Text>{props.video.snippet.description}description</Text>
+          <Text>{video.snippet.description}</Text>
         </TextContainer>
       </Link>
     </LongCard>

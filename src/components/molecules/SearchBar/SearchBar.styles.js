@@ -12,7 +12,6 @@ export const SearchIcon = styled(VscSearch)`
   font-size: 20px;
   color: #6c56a3;
   border: none;
-  cursor: default;
 `;
 
 export const Form = styled.form`

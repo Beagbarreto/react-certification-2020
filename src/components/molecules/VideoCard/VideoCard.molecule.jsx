@@ -1,6 +1,6 @@
 import React from 'react';
-import { CardContainer, TextContainer, ThumbnailImg, VideoTitle } from './VideoCard.styles';
 import { Link } from 'react-router-dom';
+import { CardContainer, TextContainer, ThumbnailImg, VideoTitle } from './VideoCard.styles';
 
 export const VideoCard = (
   props,
@@ -11,15 +11,16 @@ export const VideoCard = (
     width={isSmall ? '70%' : '290px'}
     height={isSmall ? 'fit-content' : '237'} 
   >
-    <Link to={`/VideoPage`}> 
-    {/* `/VideoPage/${video.videoId}` */}
-    <ThumbnailImg> 
-      <img src={props.video.snippet.thumbnails.medium.url} />
-    </ThumbnailImg>
-    <TextContainer>
-        <VideoTitle>{props.video.snippet.title}</VideoTitle>
-    </TextContainer>
-</Link>
+    <Link to={`/video/${props.video.id.videoId}`}> 
+      <ThumbnailImg> 
+        <img src={props.video.snippet.thumbnails.medium.url} 
+        alt={props.video.snippet.title}
+        />
+      </ThumbnailImg>
+      <TextContainer>
+          <VideoTitle>{props.video.snippet.title}</VideoTitle>
+      </TextContainer>
+    </Link>
   </CardContainer>
 );
 

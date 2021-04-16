@@ -19,13 +19,13 @@ const search = e => {
       <Form onSubmit={search}>
         <Input 
           type="text"
-          id="name"
+          id="search"
           placeholder="Look for a video..."
           onChange={e => setQuery(e.target.value)} 
           value = { query }
         />
         <Button>
-        <Link to = {`/search${query}`} >
+        <Link to = {`/search/${query}`} >
           <SearchIcon />
         </Link>
           </Button>

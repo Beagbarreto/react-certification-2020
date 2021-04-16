@@ -4,7 +4,6 @@ import { VideoList } from './YoutubeVideos.styles';
 import { Consumer } from '../../utils/hooks/context';
 import getSearch from '../../utils/hooks/getSearchedVideos';
 import { LoaderContext } from '../../utils/hooks/loader';
-import {Loader} from '../atoms'
 
 const YoutubeVideos = ({videoId}) => {
   const [ videos ] = getSearch(videoId);
@@ -17,7 +16,7 @@ const YoutubeVideos = ({videoId}) => {
         // const { videoList2 } = value;
         // if(videoList2 === undefined || videoList2.length === 0) {
         //   return showLoader();
-        //<Loader />
+        //showLoader();
         // } else {
           //hideLoader();s
 

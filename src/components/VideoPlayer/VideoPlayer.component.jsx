@@ -3,10 +3,10 @@ import {
   Display, Hr, Video, TextSection, Title, Description
 } from './VIdeoPlayer.styles';
 
-const VideoPlayer = ({videoId}) => {
-  // const [ videos ] = useVideoID(videoId);
-  // const player = `https://www.youtube.com/embed/${videoId}`;
-  const player = `https://www.youtube.com/embed/XhX6HJMwDiI`;
+const VideoPlayer = (props) => {
+  const [ videos ] = useVideoID(videoId);
+  const player = `https://www.youtube.com/embed/${videoId}`;
+  // const player = `https://www.youtube.com/embed/XhX6HJMwDiI`;
   const title = 'something cool';
   const description = 'is about to happen';
 

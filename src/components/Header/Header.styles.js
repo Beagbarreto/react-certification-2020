@@ -20,8 +20,6 @@ export const Row = styled.div`
 
 export const Col = styled.div`
   flex: ${(props) => props.size};
-  // border: 2px solid;
-  // border-color: blue;
 `;
 
 export const MenuIcon = styled(VscMenu)`
@@ -31,7 +29,7 @@ export const MenuIcon = styled(VscMenu)`
   margin-left: 30px;
   color: #6c56a3;
   border: none;
-  cursor: default;
+  //cursor: default;
 `;
 
 export const LoginContainer = styled.div`

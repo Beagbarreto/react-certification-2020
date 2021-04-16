@@ -11,7 +11,9 @@ const MainHeader = () => {
     <Header darkMode={isToggled}>
       <Row>
         <Col size={1}>
-          <MenuIcon />
+            <Link to="/">
+              <MenuIcon />
+            </Link>
         </Col>
         <Col size={4}>
           <SearchBar />

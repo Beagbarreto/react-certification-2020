@@ -2,12 +2,13 @@ import {useState, useEffect} from 'react';
 import axiosService from '../axiosService';
 import {LoaderContext} from '../hooks/loader';
 
-const useFetchID = (videoID) => { 
-  const [videoData, setVideoData] = useState('');
+const useFetchID = () => { 
+  const [videos, setVideos] = useState([]);
   const { hideLoader, showLoader } = useContext(LoaderContext);
 
-  const fetchData = async (videoID) => {
+  const fetchData = async () => {
     showLoader();
+    const videoId = video.id.videoId;
     try {
       const res = await axiosService.get('/videos', {
         params: {

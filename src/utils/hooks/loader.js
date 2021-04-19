@@ -25,8 +25,8 @@ const LoaderContextProvider = ({children}) => {
 export { LoaderContext };
 export default LoaderContextProvider;
 
-export const LoaderContainer = styled.div`
+const LoaderContainer = styled.div`
   postition: absolute;
-  align-items: center;
-  justify-content: center;
+  margin: 40px auto;
+  align-self: center;
 `;

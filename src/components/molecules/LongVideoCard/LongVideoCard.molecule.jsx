@@ -15,11 +15,11 @@ const LongVideoCard = ({ video }) => {
         </ThumbnailImg>
         <TextContainer>
           <Title>{video.snippet.title}</Title>
-          <ChannelBlock>
+          {/* <ChannelBlock>
             <Avatar />
             <Channel>{video.snippet.channelTitle}</Channel>
           </ChannelBlock>
-          <Text>{video.snippet.description}</Text>
+          <Text>{video.snippet.description}</Text> */}
         </TextContainer>
       </Link>
     </LongCard>

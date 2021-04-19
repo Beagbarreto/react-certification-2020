@@ -1,36 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
-// import { SearchContext } from '../../../store/Search/SearchProvider';
 import { Button, Form, Input, SearchContainer, SearchIcon } from './SearchBar.styles';
+import getSearch from '../../../utils/hooks/getSearchedVideos';
+import { Consumer } from '../../../providers/Theme';
 
 const SearchBar = () => {
   const [ query, setQuery ] = useState('');
+  const searchInput = useRef(null)
+
+        // dispatch:({
+      //   type: 'SEARCH_VIDEOS',
+      //   payload: res.data.items
+      // })
+
+  const onSearch = (dispatch, e) => {
+    e.preventDefault();
+    getSearch(query);
+    searchInput.current = query;
+  }
 
 const handleSearch = e => {
-  e.preventDefault();
-  useFetchData(query).then(setQuery);
+  setQuery(e.target.value);
 }
 
-// const theTerm = useContext(SearchContext);
-
-
   return (
-    <SearchContainer>
-      <Form onSubmit={handleSearch}>
-        <Input 
-          type="text"
-          id="search"
-          placeholder="Look for a video..."
-          onChange={e => setQuery(e.target.value)} 
-          value = { query }
-        />
-        <Button>
-        <Link to = {`/search/${query}`} >
-          <SearchIcon />
-        </Link>
-          </Button>
-      </Form>
-    </SearchContainer>
+    // <Consumer>
+    //   {
+    //     value => {
+    //       const { dispatch } = value;
+    //       return(
+            <SearchContainer>
+              <Form onSubmit={onSearch}>
+                <Input 
+                  type="text"
+                  ref={searchInput}
+                  //id="search"
+                  placeholder="Look for a video..."
+                  onChange={handleSearch} 
+                  value = { query }
+                />
+                <Button type="submit">
+                  <SearchIcon />
+                </Button>
+              </Form>
+            </SearchContainer>
+    //       )
+    //     }
+    //   }
+    // </Consumer>
   );
 };
 

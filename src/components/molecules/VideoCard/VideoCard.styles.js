@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CardContainer = styled.div`
   display: block;
   flex-direction: column;
-  height: fit-content;
+  // height: fit-content;
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   // width: 290px;

@@ -4,7 +4,6 @@ import { VscSearch } from 'react-icons/vsc';
 export const SearchContainer = styled.section`
   display: flex;
   flex-direction: row;
-  align-items: left;
 `;
 
 export const SearchIcon = styled(VscSearch)`

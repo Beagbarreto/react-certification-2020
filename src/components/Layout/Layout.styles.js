@@ -7,4 +7,5 @@ export const Container = styled.main`
   flex-direction: column;
   align-items: center;
   margin-top: -3rem;
+  background: ${props => props.background};
   `;

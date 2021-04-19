@@ -7,7 +7,7 @@ import {
 import { Link } from 'react-router-dom';
 import useRelatedVideos from '../../utils/hooks/useRelatedVideos';
 
-const RelatedVideos = ({videoId}) => {
+const RelatedVideos = ({videoId, handleEntry}) => {
   const [ videos ] = useRelatedVideos(videoId);
 
   return (
@@ -21,6 +21,7 @@ const RelatedVideos = ({videoId}) => {
                 isSmall={true}
                 key={video.etag}
                 id={video.id.videoId}
+                handleEntry={handleEntry}
               />
             // </Link>
           )

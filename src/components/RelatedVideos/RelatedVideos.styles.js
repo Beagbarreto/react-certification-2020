@@ -2,10 +2,9 @@ import styled from 'styled-components';
 
 export const VideoList = styled.div`
   display: block;
-  width: 25%;
-  padding: 40px 80px;
-  padding-bottom: 0;
-  justify-content: end; 
+  width: 26%;
+  padding: 40px 0;
+  margin-left: 55px;
 `;
 
 export const RecommendedVideos = styled.div`

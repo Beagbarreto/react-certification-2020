@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
 export const LongCard = styled.div`
-  display: block;
+  display: flex;
   flex: row;
-  align-items: center;
-  width: 80%;
-  height: fit-content;
+  width: 700px;
   background-color: rgba(185, 134, 217, 0.2);
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 export const TextContainer = styled.div`
@@ -17,7 +15,8 @@ export const TextContainer = styled.div`
   color: #606060;
   font-size: small !important;
   margin: 2px 2px;
-  margin-left: 14px;
+  padding-left: 15px;
+  padding-right: 15px;
 `;
 
 export const Title = styled.h4`
@@ -27,6 +26,7 @@ export const Title = styled.h4`
 `;
 
 export const Text = styled.p`
+  display: flex;
   margin-top: 10px;
   font-size: 12px;
   color: #606060
@@ -34,15 +34,14 @@ export const Text = styled.p`
 
 export const ThumbnailImg = styled.div`
   display: block;
+  //flex: column;
   object-fit: contain;
-  flex: column;
-  height: 148px;
   width: 246px;
+  height: 138px;
   background: url(${(props) => props.bg}) no-repeat;
   background-size: cover;
-  border-radius: 4px 0px 4px 0;
-  overflow: hidden;
-  text-align: center;
+  border-radius: 4px 0px 0px 4px;
+  object-fit: contain;
 `;
 
 export const ChannelBlock = styled.div`

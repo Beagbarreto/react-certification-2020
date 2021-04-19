@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   PageContainer,
 } from './Video.styles';
 import VideoPlayer from '../../components/VideoPlayer';
 import RelatedVideos from '../../components/RelatedVideos';
+import useRelatedVideos from '../../utils/hooks/useRelatedVideos';
 
-const VideoPage = () => {
+const VideoPage = ({videoId}) => {
+  const [ videos ] = useRelatedVideos(videoId);
+  const [ currentVideo ] = useState(null);
+
+  const handleEntry = e => {
+    e.preventDefault();
+    useFetchData().then(setCurrentVideo)
+  }
 
   return (
     <PageContainer>
       <VideoPlayer 
-        // videoId={videoId}
+        video={currentVideo}
       />
       <RelatedVideos 
-        // videoId={videoId} 
+        video={videoId}
+        handleEntry={handleEntry}
       />
     </PageContainer>
   );

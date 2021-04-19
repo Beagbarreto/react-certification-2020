@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-export const LoaderImg = styled.section`
+export const LoaderImg = styled.div`
   display: block;
-  margin: 40px auto;
-  width: 4rem;
-  height: 4rem;
-  justify-content: center;
+  postition: absolute;
+  margin: auto;
+  width: 200px;
+  justify-content: start;
   align-items: center;
-  align-serl: center;
 `;

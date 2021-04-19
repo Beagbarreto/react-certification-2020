@@ -1,23 +1,35 @@
-import React, {useState} from 'react';
-import { SwitchInput, SwitchLabel, SwitchButton } from './ToggleSwitch.styles';
+import React, { useState, useContext } from "react";
+import { useStore } from '../../../providers/Theme/ThemeProvider';
+import "./ToggleSwitch.styles.css";
+import { themes, TOGGLE_DARK_MODE } from '../../../utils/constants';
 
-const ToggleSwitch = ({ id, toggled, onChange }) => {
-  // const [theme, setTheme] = useState(themes.dark);
-
-  // const toggleTheme = () => {
-  //   theme === themes.dark 
-  //   ? setTheme(temes.light)
-  //   : setTheme(themes.dark);
-  // }
+function ToggleSwitch() {
+  const [isToggled, setIsToggled] = useState(false);
+  const onToggle = () => setIsToggled(!isToggled);
+  const {state, dispatch} = useStore();
+  
+  const toggleTheme = () => {
+    onToggle();
+    if (state.theme.isDark) {
+      dispatch({
+        type: TOGGLE_DARK_MODE,
+        payload: themes.light
+      });
+    } else {
+      dispatch({
+        type: TOGGLE_DARK_MODE,
+        payload: themes.dark
+      });
+    }
+  }
 
   return (
-    <>
-      <SwitchInput id={id} type="checkbox" checked={toggled} onChange={onChange} />
-      <SwitchLabel htmlFor={id}>
-        <SwitchButton />
-      </SwitchLabel>
-    </>
+        <label className="toggle-switch">
+          <input type="checkbox" checked={isToggled} onChange={toggleTheme} />
+          {/* <input type="checkbox" checked={isToggled} onChange={() => dispatch({type: "TOGGLE_DARK_MODE"}), onToggle} /> */}
+          <span className="switch" />
+          <h3>{state.theme.isDark ? 'Dark' : 'Light'}</h3>
+        </label>
   );
-};
-
+}
 export default ToggleSwitch;

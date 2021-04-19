@@ -1,37 +1,44 @@
-import React, { createContext, useContext, useReducer } from 'react';
-import themeReducer from '../../store/Theme/ThemeReducer.jsx';
-import {useLocalState} from '../../utils/hooks/localStorage';
+import React, { useContext, useState, useReducer } from 'react';
+import getSearch from '../../utils/hooks/getSearchedVideos';
+import theReducer from './ThemeReducer';
+import mock from '../../mockData/youtube-videos-mock.json';
+import axiosService from '../../utils/axiosService';
+import { themes } from '../../utils/constants';
 
-const themes = {
-  light: {
-    font: 'black',
-    bakcground: 'white',
-  },
-  dark: {
-    font: 'white',
-    background: 'black',
-  }
-};
 
 const initState = {
-  isDark: false,
-  toggleDark: () => {},
+  theme: themes.light, 
+  search: 'wizeline',
+  history: '',
 }
 
-const ThemeContext = React.createContext(themes.light);
+//initState = {
+//   isDark: Storage.getItem('isDark') ? JSON.parse(storage.getItem('isDark')) : false 
+// }
 
-const useTheme = () => useContext(ThemeContext);
+const TheContext = React.createContext({
+  theme: themes.light,
+  search: '',
+  history: ''
+});
 
-const ThemeProvider = ({children}) => {
-  const [ state, dispatch ] = useReducer(themeReducer, initState)
-  // const [ state, setState ] = useLocalState(state);
+const useStore = () => useContext(TheContext);
+
+const StoreProvider = ({children}) => {
+  //const [state, setState] = useState(initState)
+  const [ state, dispatch ] = useReducer(theReducer, initState)
+
+// useEffect(() => {
+//   getSearch()
+// }, [])
 
   return (
-    <ThemeContext.Provider value={{ state, dispatch }}>
+    <TheContext.Provider value={{state, dispatch}}>
       {children}
-    </ThemeContext.Provider>
+    </TheContext.Provider>
   )
 }
 
-export { ThemeContext, useTheme };
-export default ThemeProvider;
+export { useStore, themes };
+export default StoreProvider;
+export const Consumer = TheContext.Consumer;

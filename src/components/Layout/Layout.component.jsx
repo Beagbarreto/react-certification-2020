@@ -1,17 +1,19 @@
 import React, { useContext } from 'react';
-import ThemeContext, {themes} from '../../providers/Theme';
+import TheContext, { useStore } from '../../providers/Theme';
 // import { ThemeContext, useTheme } from '../../providers/Theme';
 
 import {Container} from './Layout.styles.js';
 
-
-
 const Layout = ({ children }) => {
-  // const {state} = useContext(context);
+  const {state} = useStore();
 
-  const themes = useContext(ThemeContext);
+  const themes = useContext(TheContext);
+
   return (
-  <Container className="container">{children}</Container>
+  <Container
+    background={state.theme.background}
+    className="container">{children}
+  </Container>
   );
 };
 

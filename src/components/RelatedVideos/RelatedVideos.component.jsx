@@ -4,10 +4,13 @@ import {
   VideoList,
   RecommendedVideos
 } from './RelatedVideos.styles';
+import {useParams} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import useRelatedVideos from '../../utils/hooks/useRelatedVideos';
 
-const RelatedVideos = ({videoId, handleEntry}) => {
+const RelatedVideos = () => {
+  let params = useParams();
+  let videoId = params.videoId;
   const [ videos ] = useRelatedVideos(videoId);
 
   return (
@@ -21,7 +24,7 @@ const RelatedVideos = ({videoId, handleEntry}) => {
                 isSmall={true}
                 key={video.etag}
                 id={video.id.videoId}
-                handleEntry={handleEntry}
+                // handleEntry={handleEntry}
               />
             // </Link>
           )

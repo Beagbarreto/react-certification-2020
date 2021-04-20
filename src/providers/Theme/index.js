@@ -1,1 +1,1 @@
-export { default, Consumer, useStore } from './ThemeProvider';
+export { default, useStore } from './ThemeProvider';

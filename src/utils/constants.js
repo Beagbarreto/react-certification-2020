@@ -16,7 +16,7 @@ const themes = {
     },
     dark: {
       font: 'white',
-      background: 'black',
+      background: 	'#101010',
       isDark: true,
     }
   };

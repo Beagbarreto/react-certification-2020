@@ -14,7 +14,7 @@ export const VideoCard = ({
     <CardContainer
       width={isSmall ? '70%' : '290px'}
       height={isSmall ? 'fit-content' : '237'} 
-      onClick={() => history.push({ pathname: `/${video.videoId}`, video })}
+      onClick={() => history.push({ pathname: `/${video.id.videoId}`, video })}
     >
       {/* <Link to={`/VideoPage/${video.id.videoId}`}>  */}
         <ThumbnailImg> 

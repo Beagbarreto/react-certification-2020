@@ -1,8 +1,5 @@
-import React, { useContext, useState, useReducer } from 'react';
-import getSearch from '../../utils/hooks/getSearchedVideos';
+import React, { useContext, useReducer } from 'react';
 import theReducer from './ThemeReducer';
-import mock from '../../mockData/youtube-videos-mock.json';
-import axiosService from '../../utils/axiosService';
 import { themes } from '../../utils/constants';
 
 
@@ -22,15 +19,15 @@ const TheContext = React.createContext({
   history: ''
 });
 
-const useStore = () => useContext(TheContext);
+// const useStoreContext = () => {
+  const useStore = () => useContext(TheContext);
+//   if(!useStore){
+//     `Can't use "useStore" without a Provider!`
+//   }
+// }
 
 const StoreProvider = ({children}) => {
-  //const [state, setState] = useState(initState)
   const [ state, dispatch ] = useReducer(theReducer, initState)
-
-// useEffect(() => {
-//   getSearch()
-// }, [])
 
   return (
     <TheContext.Provider value={{state, dispatch}}>

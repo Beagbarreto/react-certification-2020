@@ -24,12 +24,11 @@ function ToggleSwitch() {
   }
 
   return (
-        <label className="toggle-switch">
-          <input type="checkbox" checked={isToggled} onChange={toggleTheme} />
-          {/* <input type="checkbox" checked={isToggled} onChange={() => dispatch({type: "TOGGLE_DARK_MODE"}), onToggle} /> */}
-          <span className="switch" />
-          <h3>{state.theme.isDark ? 'Dark' : 'Light'}</h3>
-        </label>
+    <label className="toggle-switch">
+      <input type="checkbox" checked={isToggled} onChange={toggleTheme} />
+      <span className="switch" />
+      <h3>{state.theme.isDark ? 'Dark' : 'Light'}</h3>
+    </label>
   );
 }
 export default ToggleSwitch;

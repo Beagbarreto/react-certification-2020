@@ -1,53 +1,49 @@
 import React, { useState, useRef, useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { Button, Form, Input, SearchContainer, SearchIcon } from './SearchBar.styles';
 import getSearch from '../../../utils/hooks/getSearchedVideos';
-import { Consumer } from '../../../providers/Theme';
+import { useStore } from '../../../providers/Theme';
+import {useHistory} from 'react-router-dom';
+import { SEARCH_VIDEOS } from '../../../utils/constants';
+import { Link } from 'react-router-dom';
 
 const SearchBar = () => {
-  const [ query, setQuery ] = useState('');
-  const searchInput = useRef(null)
-
-        // dispatch:({
-      //   type: 'SEARCH_VIDEOS',
-      //   payload: res.data.items
-      // })
+  const searchInput = useRef(null);
+  const history = useHistory();
+  const {state, dispatch} = useStore();
 
   const onSearch = (dispatch, e) => {
     e.preventDefault();
-    getSearch(query);
-    searchInput.current = query;
+    getSearch(searchInput);
+    searchInput.current;
   }
 
 const handleSearch = e => {
-  setQuery(e.target.value);
+  if(e.key === 'Enter') {
+    dispatch({
+      type: SEARCH_VIDEOS,
+      payload: e.target.value
+    });
+    history.push({pathname: `/${searchInput}`});
+  }
 }
 
   return (
-    // <Consumer>
-    //   {
-    //     value => {
-    //       const { dispatch } = value;
-    //       return(
-            <SearchContainer>
-              <Form onSubmit={onSearch}>
-                <Input 
-                  type="text"
-                  ref={searchInput}
-                  //id="search"
-                  placeholder="Look for a video..."
-                  onChange={handleSearch} 
-                  value = { query }
-                />
-                <Button type="submit">
-                  <SearchIcon />
-                </Button>
-              </Form>
-            </SearchContainer>
-    //       )
-    //     }
-    //   }
-    // </Consumer>
+    <SearchContainer>
+      <Form onSubmit={onSearch}>
+        <Input 
+          type="text"
+          ref={searchInput}
+          //id="search"
+          placeholder="Look for a video..."
+          onChange={handleSearch} 
+        />
+        <Button type="submit">
+          <Link to = {`/${searchInput}`} >
+            <SearchIcon />
+          </Link>
+        </Button>
+      </Form>
+    </SearchContainer>
   );
 };
 

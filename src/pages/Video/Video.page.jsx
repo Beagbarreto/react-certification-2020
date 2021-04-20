@@ -8,21 +8,21 @@ import useRelatedVideos from '../../utils/hooks/useRelatedVideos';
 
 const VideoPage = ({videoId}) => {
   const [ videos ] = useRelatedVideos(videoId);
-  const [ currentVideo ] = useState(null);
+  // const [ currentVideo ] = useState(null);
 
-  const handleEntry = e => {
-    e.preventDefault();
-    useFetchData().then(setCurrentVideo)
-  }
+  // const handleEntry = e => {
+  //   e.preventDefault();
+  //   useFetchData().then(setCurrentVideo)
+  // }
 
   return (
     <PageContainer>
       <VideoPlayer 
-        video={currentVideo}
+        // video={currentVideo}
       />
       <RelatedVideos 
-        video={videoId}
-        handleEntry={handleEntry}
+        // video={videoId}
+        // handleEntry={handleEntry}
       />
     </PageContainer>
   );

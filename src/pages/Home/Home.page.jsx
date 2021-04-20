@@ -6,16 +6,6 @@ import { Home, HomeTitle, VideoListSection } from './Home.styles.js';
 
 const HomePage = () => {
 
-  // const history = useHistory();
-  //const sectionRef = useRef(null);
-  // const { authenticated, logout } = useAuth();
-
-  // function deAuthenticate(event) {
-  //   event.preventDefault();
-  //   logout();
-  //   history.push('/');
-  // }
-
   return (
     <>
       <Home>

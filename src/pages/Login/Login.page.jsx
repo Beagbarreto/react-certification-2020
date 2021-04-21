@@ -11,12 +11,14 @@ function LoginPage() {
   function authenticate(event) {
     event.preventDefault();
     login();
-    history.push('/secret');
+    history.push('/');
   }
 
   return (
     <section className="login">
       <h1>HALLELLO!</h1>
+      <h5>You can log in now, you know why?</h5>
+      <h3>Because you are Sickening!</h3>
       <form onSubmit={authenticate} className="login-form">
         <div className="form-group">
           <label htmlFor="username">

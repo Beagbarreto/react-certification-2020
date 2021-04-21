@@ -5,6 +5,14 @@
 .login h1 {
   text-align: center;
   letter-spacing: -1px;
+  color: #E92C8A;
+}
+
+.login h3, h5 {
+  text-align: center;
+  letter-spacing: -1px;
+  
+  color: #D4AF37
 }
 
 .login-form {

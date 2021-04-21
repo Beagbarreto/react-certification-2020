@@ -28,12 +28,18 @@ function App() {
                 <Route exact path="/">
                   <HomePage />
                 </Route>
+                <Route exact path="/login">
+                  <LoginPage />
+                </Route>
                 {/* <Route path="/search/:query">
                   <SearchPage />
                 </Route> */}
                 <Route path="/:videoId">
                   <VideoPage />
                 </Route>
+                {/* <Route exact path="/favorites">
+                  <Favorites />
+                </Route> */}
                 <Private exact path="/secret">
                   <SecretPage />
                 </Private>

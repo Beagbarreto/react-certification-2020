@@ -21,8 +21,8 @@ function App() {
     <StoreProvider>
       <BrowserRouter>
         <LoaderContextProvider>
-          <MainHeader />
           <AuthProvider>
+          <MainHeader />
             <Layout>
               <Switch>
                 <Route exact path="/">

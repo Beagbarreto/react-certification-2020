@@ -1,26 +1,24 @@
 import React from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as BiIcons from 'react-icons/bi';
+import { VscHome, VscStarEmpty, VscArrowSmallLeft } from 'react-icons/vsc';
 
-export const SidebarData = [
+export const SideBarData = [
   {
     title: 'Home',
     path: '/',
-    icon: <AiIcons.AiFillHome />,
+    icon: <VscHome />,
     cName: 'nav-text'
   },
 
   {
-    title: 'Favorites',
+    title: 'Fav Videos',
     path: '/Favorites',
-    icon: <IoIcons.IoMdPeople />,
+    icon: <VscStarEmpty />,
     cName: 'nav-text'
   },
   {
     title: 'Logout',
     path: '/',
-    icon: <BiIcons.BiLogOut />,
+    icon: <VscArrowSmallLeft />,
     cName: 'nav-text'
   }
 ];

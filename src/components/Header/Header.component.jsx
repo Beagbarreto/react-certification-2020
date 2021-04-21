@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Header, LogIcon, LoginContainer, MenuIcon, Row } from './Header.styles';
 import { ToggleSwitch } from '../atoms';
-import { SearchBar } from '../molecules';
+import { SearchBar, SideBar } from '../molecules';
 
 const MainHeader = () => {
   const [isToggled, setIsToggled] = useState(false);
@@ -11,9 +11,7 @@ const MainHeader = () => {
     <Header darkMode={isToggled}>
       <Row>
         <Col size={1}>
-            <Link to="/">
-              <MenuIcon />
-            </Link>
+          <SideBar />
         </Col>
         <Col size={4}>
           <SearchBar />

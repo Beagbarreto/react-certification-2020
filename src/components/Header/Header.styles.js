@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { VscMenu, VscSymbolBoolean } from 'react-icons/vsc';
+import { VscSymbolBoolean } from 'react-icons/vsc';
 
 export const Header = styled.header`
   display: flex;
@@ -20,16 +20,6 @@ export const Row = styled.div`
 
 export const Col = styled.div`
   flex: ${(props) => props.size};
-`;
-
-export const MenuIcon = styled(VscMenu)`
-  display: block;
-  font-size: 26px;
-  margin-right: 20px;
-  margin-left: 30px;
-  color: #6c56a3;
-  border: none;
-  //cursor: default;
 `;
 
 export const LoginContainer = styled.div`

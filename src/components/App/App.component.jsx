@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Switch, Route, useParams } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom';
 
-import StoreProvider, { useStore } from '../../providers/Theme';
+import StoreProvider from '../../providers/Theme';
 import AuthProvider from '../../providers/Auth';
 import LoaderContextProvider from '../../utils/hooks/loader';
 import HomePage from '../../pages/Home';
@@ -12,11 +12,12 @@ import SecretPage from '../../pages/Secret';
 import Private from '../Private';
 import Layout from '../Layout';
 import MainHeader from '../Header';
+import Favorites from '../../pages/Favorites';
+import Protected from '../Protected/Protected.component';
 
 function App() {
-  //let { id } = useParams();
-  const [term, setTerm] = useState('wizeline');
-
+  const history = useHistory();
+  
   return (
     <StoreProvider>
       <BrowserRouter>
@@ -37,9 +38,9 @@ function App() {
                 <Route path="/:videoId">
                   <VideoPage />
                 </Route>
-                {/* <Route exact path="/favorites">
+                <Protected exact path="/favorites">
                   <Favorites />
-                </Route> */}
+                </Protected>
                 <Private exact path="/secret">
                   <SecretPage />
                 </Private>

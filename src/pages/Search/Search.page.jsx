@@ -14,7 +14,6 @@ const SearchPage = ({videoId}) => {
         {videos.map(video => 
           <Link key={video.videoId} to={`/video/${video.videoId}`}>
             <LongVideoCard 
-              // key={video.etag}
               video={video}
             />
             </Link>

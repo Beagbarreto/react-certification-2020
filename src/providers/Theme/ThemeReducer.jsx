@@ -1,6 +1,4 @@
-import { context } from "./ThemeProvider";
-import { themes } from '../../utils/constants';
-import { TOGGLE_DARK_MODE, SEARCH_VIDEOS } from '../../utils/constants';
+import { TOGGLE_DARK_MODE, SEARCH_VIDEOS, LOGGED_USER } from '../../utils/constants';
 
 const theReducer = (state, action) => {
   console.log('REDUCER:', action.payload)
@@ -19,11 +17,15 @@ const theReducer = (state, action) => {
         video: action.payload
       }
     }
+    case LOGGED_USER: {
+      return {
+        ...state,
+        logged: action.payload
+      }
+    }
     default:
       throw new Error("Unkown action");
   }
 }
 
 export default theReducer;
-
-

@@ -16,7 +16,6 @@ function LoginPage() {
 
   return (
     <section className="login">
-      <h1>HaLLeLoO!</h1>
       <h5>You can login, you know why?</h5>
       <h3>Because you are Sickening!</h3>
       <form onSubmit={authenticate} className="login-form">

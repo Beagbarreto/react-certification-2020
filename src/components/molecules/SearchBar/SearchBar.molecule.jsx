@@ -10,6 +10,7 @@ const SearchBar = () => {
   const searchInput = useRef(null);
   const history = useHistory();
   const {state, dispatch} = useStore();
+  const [search, setSearch] = useState('wizeline');
 
   const onSearch = (dispatch, e) => {
     e.preventDefault();

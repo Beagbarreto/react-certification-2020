@@ -38,4 +38,3 @@ const StoreProvider = ({children}) => {
 
 export { useStore, themes };
 export default StoreProvider;
-export const Consumer = TheContext.Consumer;

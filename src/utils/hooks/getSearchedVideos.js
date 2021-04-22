@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import axiosService from '../axiosService';
+import axiosService from '../services/axiosService';
 import {LoaderContext} from './loader';
 import mock from '../../mockData/youtube-videos-mock.json';
 

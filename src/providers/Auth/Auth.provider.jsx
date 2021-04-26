@@ -15,6 +15,7 @@ function useAuth() {
 
 function AuthProvider({ children }) {
   const [authenticated, setAuthenticated] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const lastAuthState = storage.get(AUTH_STORAGE_KEY);
@@ -23,9 +24,19 @@ function AuthProvider({ children }) {
     setAuthenticated(isAuthenticated);
   }, []);
 
-  const login = useCallback(() => {
-    setAuthenticated(true);
-    storage.set(AUTH_STORAGE_KEY, true);
+  const loginProcess = async (username, password) => {
+    try {
+      await loginApi(username, password);
+      setAuthenticated(true);
+      setError(false);
+      storage.set(AUTH_STORAGE_KEY, true);
+    } catch (err) {
+      setError('Oops, invalid username or password!');
+    }
+  };
+
+  const login = useCallback((user, psw) => {
+    loginProcess(user, psw);
   }, []);
 
   const logout = useCallback(() => {
@@ -34,7 +45,7 @@ function AuthProvider({ children }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ login, logout, authenticated }}>
+    <AuthContext.Provider value={{ login, logout, authenticated, error }}>
       {children}
     </AuthContext.Provider>
   );

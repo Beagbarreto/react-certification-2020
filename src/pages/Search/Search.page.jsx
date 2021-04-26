@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { LongVideoCard } from '../../components/molecules';
 import { Link } from 'react-router-dom';
 import { CardsContainer } from './Search.styles';
-import getSearch from '../../utils/hooks/getSearchedVideos';
+import useGetSearch from '../../utils/hooks/getSearchedVideos';
 
 const SearchPage = ({videoId}) => {
   //let { query } = useParams();
-  const [ videos ] = getSearch(videoId);
+  const [ videos ] = useGetSearch(videoId);
 
   return (
       <CardsContainer>

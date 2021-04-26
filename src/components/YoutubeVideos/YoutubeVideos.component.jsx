@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { VideoCard } from '../molecules';
+import { SearchBar, VideoCard } from '../molecules';
 import { VideoList } from './YoutubeVideos.styles';
 import getSearch from '../../utils/hooks/getSearchedVideos';
 import { LoaderContext } from '../../utils/hooks/loader';
@@ -10,6 +10,7 @@ const YoutubeVideos = ({ videoId }) => {
 
 
   return (
+    <>
     <VideoList>
       {videos.map(video => 
         <VideoCard
@@ -20,6 +21,7 @@ const YoutubeVideos = ({ videoId }) => {
         />
       )}
     </VideoList>
+    </>
   );
 };
 

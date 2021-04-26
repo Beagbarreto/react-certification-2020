@@ -8,7 +8,6 @@ import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
 import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
-import SecretPage from '../../pages/Secret';
 import Private from '../Private';
 import Layout from '../Layout';
 import MainHeader from '../Header';
@@ -41,9 +40,6 @@ function App() {
                 <Protected exact path="/favorites">
                   <Favorites />
                 </Protected>
-                <Private exact path="/secret">
-                  <SecretPage />
-                </Private>
                 <Route path="*">
                   <NotFound />
                 </Route>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useStore } from '../../../providers/Theme/ThemeProvider';
 import "./ToggleSwitch.styles.css";
 import { themes, TOGGLE_DARK_MODE } from '../../../utils/constants';

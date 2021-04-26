@@ -1,12 +1,14 @@
 import React, { useContext, useReducer } from 'react';
 import theReducer from './ThemeReducer';
 import { themes } from '../../utils/constants';
-
+import getSearch from '../../utils/hooks/getSearchedVideos';
 
 const initState = {
   theme: themes.light, 
-  search: 'wizeline',
+  videos: [],
+  query: 'wizeline',
   history: '',
+  // favoriteVideos: ''
 }
 
 //initState = {
@@ -15,7 +17,7 @@ const initState = {
 
 const TheContext = React.createContext({
   theme: themes.light,
-  search: '',
+  query: '',
   history: ''
 });
 

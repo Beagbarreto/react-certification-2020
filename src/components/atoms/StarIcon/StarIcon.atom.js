@@ -1,39 +1,32 @@
 import React, { useState } from "react";
 import { useStore } from '../../../providers/Theme/ThemeProvider';
 import { Button, UnselectedIcon, SelectedIcon } from './StarIcon.styles';
-import { star, TOGGLE_STAR } from '../../../utils/constants';
+import { checked, TOGGLE_STAR } from '../../../utils/constants';
 
-const StarIcon = () => {
-  const [isToggled, setIsToggled] = useState(false);
-  const onToggle = () => setIsToggled(!isToggled);
-  const {state, dispatch} = useStore();
-  
-  const toggleStar = () => {
-    onToggle();
-    if (state.theme.isDark) {
-      dispatch({
-        type: TOGGLE_STAR,
-        payload: star.light
-      });
-    } else {
-      dispatch({
-        type: TOGGLE_STAR,
-        payload: star.dark
-      });
-    }
-  }
+const StarIcon = ({isChecked}) => {
+  const { state, dispatch } = useStore();
 
   return (
     <>
-    <section>
-      <Button>
-        {clicked ? (
-          <UnselectedIcon />
+        {isChecked ? (
+          <SelectedIcon 
+            onClick={() => {
+              dispatch({
+                type: TOGGLE_STAR,
+                payload: star.light
+              });
+            }}
+          />
         ) : (
-          <SelectedIcon />
+          <UnselectedIcon 
+          onClick={() => {
+            dispatch({
+              type: TOGGLE_STAR,
+              payload: star.dark
+            });
+          }}
+          />
         )}
-      </Button>
-    </section>
     </>
   );
 };

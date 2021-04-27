@@ -3,14 +3,18 @@ import { Link } from 'react-router-dom';
 import { Col, Header, LogInIcon, LogOutIcon, LoginContainer, Row } from './Header.styles';
 import { ToggleSwitch, LogButton } from '../atoms';
 import { SearchBar, SideBar } from '../molecules';
+import { useAuth } from '../../providers/Auth';
 
 const MainHeader = () => {
+  const { authenticated } = useAuth();
 
   return (
     <Header>
       <Row>
         <Col size={1}>
-          <SideBar />
+          {authenticated &&
+            <SideBar />
+          }
         </Col>
         <Col size={4}>
           <SearchBar />

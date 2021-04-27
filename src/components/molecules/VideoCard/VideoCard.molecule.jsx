@@ -1,8 +1,10 @@
 import React from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import { CardContainer, TextContainer, ThumbnailImg, VideoTitle } from './VideoCard.styles';
+import { CardContainer, TextContainer, ThumbnailImg, VideoTitle, VideoDescription } from './VideoCard.styles';
 import { useStore } from '../../../providers/Theme/ThemeProvider';
+import { useAuth } from '../../../providers/Auth';
 import { SELECTED_VIDEO } from '../../../utils/constants';
+import { StarIcon } from '../../atoms';
 
 export const VideoCard = ({ 
   video,
@@ -12,6 +14,7 @@ export const VideoCard = ({
 
   const { dispatch } = useStore();
   const history = useHistory();
+  const { authenticated } = useAuth();
 
   function clickedCard() {
     dispatch({
@@ -35,8 +38,14 @@ export const VideoCard = ({
           />
         </ThumbnailImg>
         <TextContainer>
-            <VideoTitle>{video.snippet.title}</VideoTitle>
+          <VideoTitle>{video.snippet.title}</VideoTitle>
         </TextContainer>
+        <TextContainer>
+          <VideoDescription>{video.snippet.description}</VideoDescription>
+        </TextContainer>
+        {authenticated &&
+        <StarIcon />
+        }
       {/* </Link> */}
     </CardContainer>
 );

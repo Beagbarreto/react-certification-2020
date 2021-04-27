@@ -35,10 +35,10 @@ const themes = {
 
   const star = {
     light: {
-      isDark: false,
+      isChecked: false,
     },
     dark: {
-      isDark: true,
+      isChecked: true,
     } 
   };
 

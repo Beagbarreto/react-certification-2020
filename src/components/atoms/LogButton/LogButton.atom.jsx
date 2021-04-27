@@ -1,11 +1,10 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../../providers/Auth';
 import { LogInIcon, LogOutIcon, LogContainer } from './LogButton.styles';
 
 const LogButton = () => {
   const history = useHistory();
-  const sectionRef = useRef(null);
   const { authenticated, logout } = useAuth();
 
   function deAuthenticate(event) {

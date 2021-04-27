@@ -15,9 +15,9 @@ export const CardContainer = styled.div`
   box-shadow: rgba(50, 44, 78, 0.15) 0px 5px 15px 0px;
   &:hover {
     position: 'absolute';
-    opacity: 0.6;
-    box-shadow: rgba(254, 223, 3, 0.12) 0px 2px 4px 0px,
-      rgba(254, 223, 3) 0px 2px 16px 0px;
+    opacity: 0.8;
+    box-shadow: rgba(240, 51, 145, 1) 0px 2px 4px 0px,
+      rgba(240, 51, 145) 0px 2px 16px 0px;
   }
   @media screen and (max-width: 812px) {
     width: 95%;
@@ -56,4 +56,16 @@ export const VideoTitle = styled.p`
   overflow: hidden;
   text-align: left;
   margin: 10px 0 8px;
+`;
+
+export const VideoDescription = styled.p`
+  font-size: 12px;
+  color: #262626;
+  font-weight: 400;
+  font-family: 'Open Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
+    Geneva, Verdana, sans-serif;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: left;
+  margin: 0;
 `;

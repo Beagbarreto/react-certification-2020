@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { VideoCard } from '../molecules';
 import { VideoList } from './YoutubeVideos.styles';
-import getSearch from '../../utils/hooks/getSearchedVideos';
 import { SearchContext } from '../../providers/SearchContext';
 import searchingVideos from '../../utils/services/videoServices';
 import {Link} from 'react-router-dom';
@@ -9,7 +8,6 @@ import {Link} from 'react-router-dom';
 
 const YoutubeVideos = ({ videoId }) => {
   const { query } = useContext(SearchContext);
-  //const [ videos ] = getSearch(videoId);
   const [ videos, setVideos ] = useState([]);
 
   useEffect(() => {

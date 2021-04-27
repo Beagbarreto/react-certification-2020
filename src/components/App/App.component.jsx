@@ -18,10 +18,10 @@ function App() {
   const history = useHistory();
   
   return (
-    <BrowserRouter>
+    <StoreProvider>
+      <BrowserRouter>
           <AuthProvider>
             <SearchContextProvider>
-    <StoreProvider>
             <MainHeader />
               <Layout>
                 <Switch>
@@ -31,7 +31,7 @@ function App() {
                   <Route exact path="/login">
                     <LoginPage />
                   </Route>
-                  <Route exact path="/:videoId">
+                  <Route path="/:videoId">
                     <VideoPage />
                   </Route>
                   <Protected exact path="/favorites">
@@ -42,10 +42,10 @@ function App() {
                   </Route>
                 </Switch>
               </Layout>
-    </StoreProvider>
             </SearchContextProvider>
           </AuthProvider>
       </BrowserRouter>
+    </StoreProvider>
   );
 }
 

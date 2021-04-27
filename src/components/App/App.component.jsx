@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom';
 
 import StoreProvider from '../../providers/Theme';
 import AuthProvider from '../../providers/Auth';
-import LoaderContextProvider from '../../utils/hooks/loader';
 import SearchContextProvider from '../../providers/SearchContext';
 import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
@@ -19,11 +18,10 @@ function App() {
   const history = useHistory();
   
   return (
-    <StoreProvider>
-      <BrowserRouter>
-        <LoaderContextProvider>
+    <BrowserRouter>
           <AuthProvider>
             <SearchContextProvider>
+    <StoreProvider>
             <MainHeader />
               <Layout>
                 <Switch>
@@ -33,10 +31,7 @@ function App() {
                   <Route exact path="/login">
                     <LoginPage />
                   </Route>
-                  {/* <Route path="/search/:query">
-                    <SearchPage />
-                  </Route> */}
-                  <Route path="/:videoId">
+                  <Route exact path="/:videoId">
                     <VideoPage />
                   </Route>
                   <Protected exact path="/favorites">
@@ -47,11 +42,10 @@ function App() {
                   </Route>
                 </Switch>
               </Layout>
+    </StoreProvider>
             </SearchContextProvider>
           </AuthProvider>
-        </LoaderContextProvider>
       </BrowserRouter>
-    </StoreProvider>
   );
 }
 

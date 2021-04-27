@@ -9,9 +9,7 @@ const searchingVideos = async (query) => {
   //   }
 //let mockData = mock;
     // let items = [];
-    // const length = mock.items.length;
-    // for(let i = 0; i <= length; i ++){
-    //   items.push()
+    // mockData.filter(items.push())
     // }
   // } else {
     res = await axiosService.get(`/search`, {

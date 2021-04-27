@@ -6,16 +6,13 @@ import getSearch from '../../utils/hooks/getSearchedVideos';
 const initState = {
   theme: themes.light, 
   videos: [],
-  // favoriteVideos: ''
+  selectedVideo: '',
+  // favoriteVideos: {}
 }
-
-//initState = {
-//   isDark: Storage.getItem('isDark') ? JSON.parse(storage.getItem('isDark')) : false 
-// }
 
 const TheContext = React.createContext({
   theme: themes.light,
-  history: ''
+  selectedVideo: '',
 });
 
 // const useStoreContext = () => {
@@ -35,5 +32,5 @@ const StoreProvider = ({children}) => {
   )
 }
 
-export { useStore, themes };
+export { useStore, themes, TheContext };
 export default StoreProvider;

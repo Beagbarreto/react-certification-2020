@@ -8,6 +8,8 @@ const TOGGLE_DARK_MODE = 'TOGGLE_DARK_MODE';
 const SEARCH_VIDEOS ='SEARCH_VIDEOS';
 const LOGGED_USER = 'LOGGED_USER';
 const FAVORITE_VIDEOS = 'FAVORITE_VIDEOS';
+const SELECTED_VIDEO = "SELECTED_VIDEO";
+const TOGGLE_STAR = 'TOGGLE_STAR';
 
 const themes = {
     light: {
@@ -31,13 +33,25 @@ const themes = {
     }
   }
 
+  const star = {
+    light: {
+      isDark: false,
+    },
+    dark: {
+      isDark: true,
+    } 
+  };
+
 export { 
   AUTH_STORAGE_KEY,
   REACT_APP_YOUTUBE_API_KEY,
   BASE_URL,
   themes,
+  star,
   TOGGLE_DARK_MODE,
   SEARCH_VIDEOS,
   LOGGED_USER,
   FAVORITE_VIDEOS,
+  SELECTED_VIDEO,
+  TOGGLE_STAR,
 };

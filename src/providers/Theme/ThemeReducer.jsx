@@ -1,6 +1,7 @@
 import { 
   TOGGLE_DARK_MODE,
   LOGGED_USER,
+  SELECTED_VIDEO,
 } from '../../utils/constants';
 
 const theReducer = (state, action) => {
@@ -17,6 +18,12 @@ const theReducer = (state, action) => {
       return {
         ...state,
         logged: action.payload
+      }
+    }
+    case SELECTED_VIDEO: {
+      return {
+        ...state,
+        selectedVideo: action.payload
       }
     }
     default:

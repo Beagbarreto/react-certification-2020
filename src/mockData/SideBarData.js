@@ -14,11 +14,5 @@ export const SideBarData = [
     path: '/Favorites',
     icon: <VscStarEmpty />,
     cName: 'nav-text'
-  },
-  {
-    title: 'Logout',
-    path: '/',
-    icon: <VscArrowSmallLeft />,
-    cName: 'nav-text'
   }
 ];

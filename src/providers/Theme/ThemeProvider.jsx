@@ -6,8 +6,6 @@ import getSearch from '../../utils/hooks/getSearchedVideos';
 const initState = {
   theme: themes.light, 
   videos: [],
-  query: 'wizeline',
-  history: '',
   // favoriteVideos: ''
 }
 
@@ -17,7 +15,6 @@ const initState = {
 
 const TheContext = React.createContext({
   theme: themes.light,
-  query: '',
   history: ''
 });
 

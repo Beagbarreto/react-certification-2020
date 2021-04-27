@@ -1,13 +1,27 @@
-import React, { useContext } from 'react';
-import { SearchBar, VideoCard } from '../molecules';
+import React, { useContext, useEffect, useState } from 'react';
+import { VideoCard } from '../molecules';
 import { VideoList } from './YoutubeVideos.styles';
 import getSearch from '../../utils/hooks/getSearchedVideos';
-import { LoaderContext } from '../../utils/hooks/loader';
-import {Loader} from '../atoms';
+import { SearchContext } from '../../providers/SearchContext';
+import searchingVideos from '../../utils/services/videoServices';
+
 
 const YoutubeVideos = ({ videoId }) => {
-  const [ videos ] = getSearch(videoId);
+  const { query } = useContext(SearchContext);
+  //const [ videos ] = getSearch(videoId);
+  const [ videos, setVideos ] = useState([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+        const videos = await searchingVideos(query)
+        setVideos(videos.data.items)
+      } catch{
+        alert('No results were found')
+      }
+    }
+    fetchData();
+  }, [query]);
 
   return (
     <>

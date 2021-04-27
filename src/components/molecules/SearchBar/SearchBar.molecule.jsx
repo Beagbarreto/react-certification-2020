@@ -1,70 +1,11 @@
-import React, { useState, useRef, useContext } from 'react';
+import React, { useRef, useContext } from 'react';
 import { Button, Form, Input, SearchContainer, SearchIcon } from './SearchBar.styles';
-import { useStore } from '../../../providers/Theme/ThemeProvider';
-import { SEARCH_VIDEOS } from '../../../utils/constants';
-import getSearch from '../../../utils/hooks/getSearchedVideos';
+import { SearchContext } from '../../../providers/SearchContext';
 
 const SearchBar = () => {
-  // const [query, setQuery] = useRef('wizeline');
-  const {state, dispatch} = useStore();
-  
-  const searchForVideos = (e, query) => {
-    const videos = getSearch(query);
-    dispatch({ 
-      type: SEARCH_VIDEOS,
-      payload: e.target.value });
-  };
+  const { query, setQuery } = useContext(SearchContext);
 
-  // const handleSearch = (e) => {
-  //   dispatch({
-  //     type: SEARCH_VIDEOS,
-  //     payload: { ...state, query: e.target.value },
-  //   })
-  // };
-
-
-  return (
-    <SearchContainer>
-      <Form>
-        <Input 
-          type="text"
-          placeholder="Look for a video..."
-          onChange={(e) =>
-            dispatch({
-              type: SEARCH_VIDEOS,
-              payload: { param: e.target.value },
-            })
-          }
-          value = {state.query}
-        />
-        <Button 
-          type="submit"
-          onClick={() =>
-            dispatch({
-              type: SEARCH_VIDEOS,
-              payload: state,
-            })
-          }
-        >
-            <SearchIcon />
-        </Button>
-      </Form>
-    </SearchContainer>
-  );
-};
-
-export default SearchBar;
-
-// import React, { useState, useRef, useContext } from 'react';
-// import { Button, Form, Input, SearchContainer, SearchIcon } from './SearchBar.styles';
-// import getSearch from '../../../utils/hooks/getSearchedVideos';
-// import { useStore } from '../../../providers/Theme';
-// import {useHistory} from 'react-router-dom';
-// import { SEARCH_VIDEOS } from '../../../utils/constants';
-// import { Link } from 'react-router-dom';
-
-// const SearchBar = () => {
-//    const searchRef = useRef(null);
+  //    const searchRef = useRef(null);
 //   // const [isCurrent] = useRef(null);
 //   // const history = useHistory();
 //   // const {state, dispatch} = useStore();
@@ -86,27 +27,24 @@ export default SearchBar;
 //   }
 // }
 
-//   return (
-//     <SearchContainer>
-//       <Form onSubmit={onSearch}>
-//         <Input 
-//           type="text"
+  return (
+    <SearchContainer>
+      <Form>
+        <Input 
+          type="text"
+          placeholder="Look for a video..."
+          onChange={(e) =>
+            setQuery(e.target.value)
+          }
+          value = {query}
 //           ref={searchRef}
-//           //id="search"
-//           placeholder="Look for a video..."
-//           onChange={handleSearch} 
-//         />
-//         <Button 
-//           type="submit"
-//           onClick ={() => console.log('REFERENCEEEEE:', onSearch)}
-//         >
-//           <Link to = {`/${searchRef.current}`} >
-//             <SearchIcon />
-//           </Link>
-//         </Button>
-//       </Form>
-//     </SearchContainer>
-//   );
-// };
+        />
+        <Button type="submit">
+            <SearchIcon />
+        </Button>
+      </Form>
+    </SearchContainer>
+  );
+};
 
-// export default SearchBar;
+export default SearchBar;

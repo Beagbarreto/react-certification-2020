@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom';
 import StoreProvider from '../../providers/Theme';
 import AuthProvider from '../../providers/Auth';
 import LoaderContextProvider from '../../utils/hooks/loader';
+import SearchContextProvider from '../../providers/SearchContext';
 import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
 import LoginPage from '../../pages/Login';
@@ -22,29 +23,31 @@ function App() {
       <BrowserRouter>
         <LoaderContextProvider>
           <AuthProvider>
-          <MainHeader />
-            <Layout>
-              <Switch>
-                <Route exact path="/">
-                  <HomePage />
-                </Route>
-                <Route exact path="/login">
-                  <LoginPage />
-                </Route>
-                {/* <Route path="/search/:query">
-                  <SearchPage />
-                </Route> */}
-                <Route path="/:videoId">
-                  <VideoPage />
-                </Route>
-                <Protected exact path="/favorites">
-                  <Favorites />
-                </Protected>
-                <Route path="*">
-                  <NotFound />
-                </Route>
-              </Switch>
-            </Layout>
+            <SearchContextProvider>
+            <MainHeader />
+              <Layout>
+                <Switch>
+                  <Route exact path="/">
+                    <HomePage />
+                  </Route>
+                  <Route exact path="/login">
+                    <LoginPage />
+                  </Route>
+                  {/* <Route path="/search/:query">
+                    <SearchPage />
+                  </Route> */}
+                  <Route path="/:videoId">
+                    <VideoPage />
+                  </Route>
+                  <Protected exact path="/favorites">
+                    <Favorites />
+                  </Protected>
+                  <Route path="*">
+                    <NotFound />
+                  </Route>
+                </Switch>
+              </Layout>
+            </SearchContextProvider>
           </AuthProvider>
         </LoaderContextProvider>
       </BrowserRouter>

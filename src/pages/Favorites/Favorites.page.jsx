@@ -1,20 +1,29 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { VideoCard } from '../../components/molecules';
-import { VideoList } from './Favorites.styles';
+import { Link } from 'react-router-dom';
+import { VideoList, FavTitle, NoVideos, CardContainer, TextContainer, ThumbnailImg, VideoTitle, VideoDescription } from './Favorites.styles';
 import { SearchContext } from '../../providers/SearchContext';
 import searchingVideos from '../../utils/services/videoServices';
 import { FAVORITE_VIDEOS } from '../../utils/constants';
 import { useStore } from '../../providers/Theme';
+import { VscSquirrel } from "react-icons/vsc";
+import { StarIcon } from '../../components/atoms';
+import { useLocation } from 'react-router-dom';
 
 const Favorites = ({videoId}) => {
+  let location = useLocation();
   const { state, dispatch } = useStore();
   const { favoriteVideos } = state;
-  const handleDelete = (index) => {
+  const handleDelete = (index) => () =>
     dispatch({
       type: DELETE_FAVORITE,
       payload : index
     });
-  }
+
+  const str = description;
+  const length = str.length
+  const desc =  length > 70 ? str.slice(0, 69) : str;
+  const vid = video.id.videoId;
+
   //const { query } = useContext(SearchContext);
   //const [ videos, setVideos ] = useState([]);
   
@@ -38,26 +47,36 @@ const Favorites = ({videoId}) => {
   
     return (
       <>
-      <p>Here are your favorite videos...</p>
-      {/* <VideoList>
-        {videos.map(video => 
-          <VideoCard
-            //onVideoSelect={onVideoSelect}
-            key={video.etag}
-            video={video}
-            id={video.id.videoId}
-          />
-        )}
-      </VideoList> */}
-      {FAVORITE_VIDEOS.length === 0 &&
-        <span>
-          You haven't starred any videos :(
-        </span>
-      }
+        <FavTitle>
+            Hey squirrel friend, watch some of your favorite videos!
+          </FavTitle>
+          <VideoList>
+            {videos.map(({ title, desc, image, etag }, i) => (
+              <CardContainer key={etag}>
+                <Link to={`/user/${vid}`}> 
+                  <ThumbnailImg> 
+                    <img src={image} 
+                    alt={title}
+                    />
+                  </ThumbnailImg>
+                  <TextContainer>
+                    <VideoTitle>{title}</VideoTitle>
+                  </TextContainer>
+                  <TextContainer>
+                    <VideoDescription>{desc} ...</VideoDescription>
+                  </TextContainer>
+                </Link>
+                <StarIcon onDelete={handleDelete(i)} />
+              </CardContainer>
+            ))}
+          </VideoList> 
+          {favoriteVideos.length === 0 &&
+            <NoVideos>
+              You have not starred any videos... <VscSquirrel />
+            </NoVideos>
+          }
       </>
     );
   };
-
-// export default withAuth(Favorites);
 
 export default Favorites;

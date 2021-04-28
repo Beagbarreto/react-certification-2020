@@ -9,14 +9,15 @@ const StarIcon = () => {
   const [checked, setChecked] = useState(false);
   const handleChange = () => setChecked(!checked);
 
-//
-
-
   const handleAdd = () => {
     dispatch({
       type: ADD_FAVORITE,
-      payload: star.light
-      //title, description, image, etag save here
+      payload: {
+        title: `${something.title}`,
+        description: `${something.description}`,
+        image: `${something.image}`,
+        etag: `${something.etag}`,
+      }
     })
     state.favoriteVideos //storage for add and delete
   }
@@ -24,8 +25,9 @@ const StarIcon = () => {
   const handleDelete = () => {
     dispatch({
       type: DELETE_FAVORITE,
-      payload: [index, star.dark]
+      payload: index
       //delete by etag
+      //find and delete index
     })
   }
 
@@ -35,7 +37,6 @@ const StarIcon = () => {
         onClick={() => {
           dispatch({
             type: TOGGLE_STAR,
-            payload: star.dark
           });
           handleDelete()
           setChecked(false)
@@ -46,7 +47,6 @@ const StarIcon = () => {
         onClick={() => {
           dispatch({
             type: TOGGLE_STAR,
-            payload: star.light
           });
           handleAdd()
           setChecked(true)

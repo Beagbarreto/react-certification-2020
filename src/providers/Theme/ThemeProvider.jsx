@@ -1,12 +1,10 @@
 import React, { useContext, useReducer } from 'react';
 import theReducer from './ThemeReducer';
-import { star, themes } from '../../utils/constants';
+import { themes } from '../../utils/constants';
 
 const initState = {
   theme: themes.light, 
-  starChecked: star.light,
   favoriteVideos: [],
-  history: [],
   selectedVideo: '',
 }
 

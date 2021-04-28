@@ -35,21 +35,11 @@ const themes = {
     }
   }
 
-  const star = {
-    light: {
-      isChecked: false,
-    },
-    dark: {
-      isChecked: true,
-    } 
-  };
-
 export { 
   AUTH_STORAGE_KEY,
   REACT_APP_YOUTUBE_API_KEY,
   BASE_URL,
   themes,
-  star,
   TOGGLE_DARK_MODE,
   SEARCH_VIDEOS,
   LOGGED_USER,

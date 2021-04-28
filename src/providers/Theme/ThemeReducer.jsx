@@ -20,7 +20,7 @@ const theReducer = (state, action) => {
     case TOGGLE_STAR: {
       return {
         ...state,
-        starChecked: action.payload
+        // starChecked: action.payload
       }
     }
     case LOGGED_USER: {
@@ -38,25 +38,17 @@ const theReducer = (state, action) => {
     case ADD_FAVORITE: {
       return {
         ...state,
-        favoriteVideos: [...state.favoriteVideos, action.payload],
-        history: [
-          `${action.type}: ${JSON.stringify(action.payload)}`,
-          ...state.history
-        ]
+        favoriteVideos: [
+        ...state.favoriteVideos,
+        action.payload],
       }
     }
     case DELETE_FAVORITE: {
       const deleted = state.favoriteVideos[action.payload];
-      const history = [
-        `${action.type}: ${JSON.stringify(action.payload)} - ${JSON.stringify(
-          deleted
-        )}`,
-        ...state.history
-      ] //delete id from array, probably etag
+     //delete id from array, probably etag
       return {
         ...state,
-        favoriteVideos: state.favoriteVideos.filter((favoriteVideos, i) => i !== action.payload),
-        history: history
+        favoriteVideos: state.favoriteVideos.filter((fav, i) => i !== action.payload),
       };
     }
     default:

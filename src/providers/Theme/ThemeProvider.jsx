@@ -5,9 +5,9 @@ import { star, themes } from '../../utils/constants';
 const initState = {
   theme: themes.light, 
   starChecked: star.light,
-  videos: [],
+  favoriteVideos: [],
+  history: [],
   selectedVideo: '',
-  // favoriteVideos: {}
 }
 
 const TheContext = React.createContext(null);

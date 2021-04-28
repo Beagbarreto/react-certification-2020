@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, useParams } from 'react-router-dom';
 import { CardContainer, TextContainer, ThumbnailImg, VideoTitle, VideoDescription } from './VideoCard.styles';
 import { useStore } from '../../../providers/Theme/ThemeProvider';
 import { useAuth } from '../../../providers/Auth';
@@ -11,27 +11,30 @@ export const VideoCard = ({
   onPress,
   isSmall = false,
 }) => {
-
-  const { dispatch } = useStore();
-  const history = useHistory();
+  
   const { authenticated } = useAuth();
+  const str = video.snippet.description;
+  const length = str.length
+  const description =  length > 70 ? str.slice(0, 69) : str;
+  const vid = video.id.videoId;
 
-  function clickedCard() {
-    dispatch({
-      type: SELECTED_VIDEO,
-      payload: { selectedVideo: video.id.videoId }
-    });
-    history.push(`/video${window.location.pathname}`)
-  }
+  // function clickedCard() {
+  //   dispatch({
+  //     type: SELECTED_VIDEO,
+  //     payload: { selectedVideo: video.id.videoId }
+  //   });
+  //   history.push(`/video${window.location.pathname}`)
+  // }
+
 
   return(
     <CardContainer
       width={isSmall ? '70%' : '290px'}
       height={isSmall ? 'fit-content' : '237'} 
       // onClick={() => history.push({ pathname: `/${video.id.videoId}`, video })}
-      onClick={clickedCard}
+      // onClick={clickedCard}
     >
-      {/* <Link to={`/VideoPage/${video.id.videoId}`}>  */}
+      <Link to={`/video/${vid}`}> 
         <ThumbnailImg> 
           <img src={video.snippet.thumbnails.medium.url} 
           alt={video.snippet.title}
@@ -41,12 +44,12 @@ export const VideoCard = ({
           <VideoTitle>{video.snippet.title}</VideoTitle>
         </TextContainer>
         <TextContainer>
-          <VideoDescription>{video.snippet.description}</VideoDescription>
+          <VideoDescription>{description} ...</VideoDescription>
         </TextContainer>
+        </Link>
         {authenticated &&
         <StarIcon />
         }
-      {/* </Link> */}
     </CardContainer>
 );
 }

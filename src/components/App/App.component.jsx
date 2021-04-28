@@ -12,7 +12,6 @@ import Private from '../Private';
 import Layout from '../Layout';
 import MainHeader from '../Header';
 import Favorites from '../../pages/Favorites';
-import Protected from '../Protected/Protected.component';
 
 function App() {
   const history = useHistory();
@@ -31,12 +30,12 @@ function App() {
                   <Route exact path="/login">
                     <LoginPage />
                   </Route>
-                  <Route path="/:videoId">
+                  <Route path="/video/:videoId">
                     <VideoPage />
                   </Route>
-                  <Protected exact path="/favorites">
+                  <Private exact path="/favorites">
                     <Favorites />
-                  </Protected>
+                  </Private>
                   <Route path="*">
                     <NotFound />
                   </Route>

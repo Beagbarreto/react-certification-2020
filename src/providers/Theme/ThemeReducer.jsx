@@ -3,6 +3,8 @@ import {
   LOGGED_USER,
   SELECTED_VIDEO,
   TOGGLE_STAR,
+  ADD_FAVORITE,
+  DELETE_FAVORITE,
 } from '../../utils/constants';
 
 const theReducer = (state, action) => {
@@ -32,6 +34,30 @@ const theReducer = (state, action) => {
         ...state,
         selectedVideo: action.payload
       }
+    }
+    case ADD_FAVORITE: {
+      return {
+        ...state,
+        favoriteVideos: [...state.favoriteVideos, action.payload],
+        history: [
+          `${action.type}: ${JSON.stringify(action.payload)}`,
+          ...state.history
+        ]
+      }
+    }
+    case DELETE_FAVORITE: {
+      const deleted = state.favoriteVideos[action.payload];
+      const history = [
+        `${action.type}: ${JSON.stringify(action.payload)} - ${JSON.stringify(
+          deleted
+        )}`,
+        ...state.history
+      ] //delete id from array, probably etag
+      return {
+        ...state,
+        favoriteVideos: state.favoriteVideos.filter((favoriteVideos, i) => i !== action.payload),
+        history: history
+      };
     }
     default:
       throw new Error("Unkown action");

@@ -5,27 +5,12 @@ import { SearchContext } from '../../../providers/SearchContext';
 const SearchBar = () => {
   const { query, setQuery } = useContext(SearchContext);
 
-  //    const searchRef = useRef(null);
-//   // const [isCurrent] = useRef(null);
-//   // const history = useHistory();
-//   // const {state, dispatch} = useStore();
-//   const [search, setSearch] = useState('wizeline');
 
-//   const onSearch = (dispatch, e) => {
-//     e.preventDefault();
-//     searchRef.current.focus();
-//     //getSearch(searchRef);
-//   }
-
-// const handleSearch = e => {
-//   if(e.key === 'Enter') {
-//     dispatch({
-//       type: SEARCH_VIDEOS,
-//       payload: e.target.value
-//     });
-//     history.push({pathname: `/${searchRef}`});
-//   }
-// }
+  // const handleSearch = async (e) => {
+  //   if(e.key === 'Enter') {
+  //     setQuery(e.target.value);
+  //   }
+  // };
 
   return (
     <SearchContainer>

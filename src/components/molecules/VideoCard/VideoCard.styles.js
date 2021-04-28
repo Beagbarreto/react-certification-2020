@@ -9,13 +9,13 @@ export const CardContainer = styled.div`
   // width: 290px;
   // height: 237px;
   background-color: rgba(185, 134, 217, 0.2);
-  border-radius: 6px;
+  border-radius: 5px;
   margin-bottom: 30px;
   overflow: hidden;
   box-shadow: rgba(50, 44, 78, 0.15) 0px 5px 15px 0px;
   &:hover {
     position: 'absolute';
-    opacity: 0.8;
+    opacity: 0.9;
     box-shadow: rgba(240, 51, 145, 1) 0px 2px 4px 0px,
       rgba(240, 51, 145) 0px 2px 16px 0px;
   }
@@ -41,7 +41,7 @@ export const ThumbnailImg = styled.div`
   background: url(${(props) => props.bg}) no-repeat;
   background-size: cover;
   background-position: center;
-  border-radius: 4px 4px 0 0;
+  border-radius: 3px 3px 0 0;
   overflow: hidden;
   text-align: center;
   background-color: #ffffff;
@@ -54,18 +54,18 @@ export const VideoTitle = styled.p`
   color: #6c56a3;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   overflow: hidden;
+  overflow: hidden;
   text-align: left;
   margin: 10px 0 8px;
+  text-overflow: ellipsis;
 `;
 
 export const VideoDescription = styled.p`
   font-size: 12px;
-  color: #262626;
+  color: #6c56a3;
   font-weight: 400;
   font-family: 'Open Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
     Geneva, Verdana, sans-serif;
-  text-overflow: ellipsis;
-  overflow: hidden;
   text-align: left;
   margin: 0;
 `;

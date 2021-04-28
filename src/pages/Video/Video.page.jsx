@@ -12,20 +12,33 @@ import {
 } from './Video.styles';
 import useStore from '../../providers/Theme';
 import { SearchContext } from '../../providers/SearchContext';
-import searchingVideos from '../../utils/services/videoServices';
 import useRelatedVideos from '../../utils/hooks/useRelatedVideos';
+import searchingVideos from '../../utils/services/videoServices';
 import { VideoCard } from '../../components/molecules';
 import { useParams } from 'react-router-dom';
 
 const VideoPage = () => {
   let { videoId } = useParams();
   const [ videos ] = useRelatedVideos(videoId);
-  console.log('WHAT IS VIDEO? ', videos)
   const videoSrc = `https://www.youtube.com/embed/${videoId}`;
-  // const title = videos ? videos.snippet.title : 'Something cool';
-  // const description = videos ? videos.snippet.Description :'is about to happen...';
-  const title =  'Something cool';
-  const description ='is about to happen...';
+  const { query } = useContext(SearchContext);
+  const [ videoInf, setVideoInf ] = useState([]);
+  const [ title, setTitle ] = useState('');
+  const [ description, setDescription ] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+        const videoInf = await searchingVideos(videoId)
+        setVideoInf(videoInf.data.items)
+        setTitle(videoInf.data.items[0].snippet.title)
+        setDescription(videoInf.data.items[0].snippet.description)
+      } catch{
+        alert('No results were found')
+      }
+    }
+    fetchData();
+  }, [query]);
 
   return (
     <PageContainer>

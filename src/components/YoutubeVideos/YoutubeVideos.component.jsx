@@ -6,7 +6,7 @@ import searchingVideos from '../../utils/services/videoServices';
 import {Link} from 'react-router-dom';
 
 
-const YoutubeVideos = ({ videoId }) => {
+const YoutubeVideos = () => {
   const { query } = useContext(SearchContext);
   const [ videos, setVideos ] = useState([]);
 

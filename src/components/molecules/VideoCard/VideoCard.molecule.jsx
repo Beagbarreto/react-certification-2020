@@ -1,9 +1,7 @@
 import React from 'react';
-import { useHistory, Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CardContainer, TextContainer, ThumbnailImg, VideoTitle, VideoDescription } from './VideoCard.styles';
-import { useStore } from '../../../providers/Theme/ThemeProvider';
 import { useAuth } from '../../../providers/Auth';
-import { SELECTED_VIDEO } from '../../../utils/constants';
 import { StarIcon } from '../../atoms';
 
 export const VideoCard = ({ 
@@ -26,13 +24,10 @@ export const VideoCard = ({
   //   history.push(`/video${window.location.pathname}`)
   // }
 
-
   return(
     <CardContainer
       width={isSmall ? '70%' : '290px'}
       height={isSmall ? 'fit-content' : '237'} 
-      // onClick={() => history.push({ pathname: `/${video.id.videoId}`, video })}
-      // onClick={clickedCard}
     >
       <Link to={`/video/${vid}`}> 
         <ThumbnailImg> 

@@ -5,17 +5,12 @@ import {
 import { useParams } from 'react-router-dom';
 import useStore from '../../providers/Theme';
 
-const VideoPlayer = () => {
-  // console.log('VIDEOuoouoj', props)
-  // const { state, dispatch } = useStore();
-  // const { videoId } = useParams();
-  // const videoId = video ? video.match.params.id : 'XhX6HJMwDiI';
+const VideoPlayer = ({videos}) => {
   let { videoId } = useParams();
+  console.log('WHAT IS VIDEO? ', videos)
   const videoSrc = `https://www.youtube.com/embed/${videoId}`;
-  // const title = videoId ? videoId.snippet.title : 'Something cool';
-  // const description = videoId ? videoId.snippet.Description :'is about to happen...';
-  // const videoSrc = `https://www.youtube.com/embed/${state.selectedVideo.id.videoId}`;
-
+  const title = videos ? videos.snippet.title : 'Something cool';
+  const description = videos ? videos.snippet.Description :'is about to happen...';
 
   return (
     <Display >
@@ -24,14 +19,14 @@ const VideoPlayer = () => {
         frameBorder="0"
         allowFullScreen
       />
-      {/* <TextSection>
+      <TextSection>
         <Title>
           {title}</Title>
         <Hr />
         <Description>
           {description}
         </Description>
-      </TextSection> */}
+      </TextSection>
     </Display>
   )
 }

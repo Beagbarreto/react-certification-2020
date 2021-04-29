@@ -43,7 +43,9 @@ export const VideoCard = ({
         </TextContainer>
         </Link>
         {authenticated &&
-        <StarIcon />
+        <StarIcon
+          video={video}
+        />
         }
     </CardContainer>
 );

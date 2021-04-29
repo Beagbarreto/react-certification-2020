@@ -9,7 +9,6 @@ const HomePage = () => {
       <Home>
         <HomeTitle>Hello, Hello, Hello!</HomeTitle>
         <YoutubeVideos />
-        {/* <VideoListSection>{videoList}</VideoListSection> */}
       </Home>
     </>
   );

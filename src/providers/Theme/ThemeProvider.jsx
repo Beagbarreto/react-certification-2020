@@ -1,6 +1,7 @@
 import React, { useContext, useReducer } from 'react';
 import theReducer from './ThemeReducer';
 import { themes } from '../../utils/constants';
+import { storage } from '../../utils/storage';
 
 const initState = {
   theme: themes.light, 

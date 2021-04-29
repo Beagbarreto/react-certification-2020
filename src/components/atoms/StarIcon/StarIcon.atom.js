@@ -3,7 +3,7 @@ import { useStore } from '../../../providers/Theme/ThemeProvider';
 import { Button, UnselectedIcon, SelectedIcon } from './StarIcon.styles';
 import { ADD_FAVORITE, DELETE_FAVORITE, star, TOGGLE_STAR } from '../../../utils/constants';
 
-const StarIcon = () => {
+const StarIcon = ({video}) => {
   const { state, dispatch } = useStore();
   const { favoriteVideos } = state;
   const [checked, setChecked] = useState(false);
@@ -12,24 +12,21 @@ const StarIcon = () => {
   const handleAdd = () => {
     dispatch({
       type: ADD_FAVORITE,
-      payload: {
-        title: `${something.title}`,
-        description: `${something.description}`,
-        image: `${something.image}`,
-        etag: `${something.etag}`,
-      }
+      payload: video,
     })
     state.favoriteVideos //storage for add and delete
   }
 
   const handleDelete = () => {
-    dispatch({
-      type: DELETE_FAVORITE,
-      payload: index
-      //delete by etag
-      //find and delete index
-    })
+  let removeIndex = favoriteVideos.findIndex((vid) => vid.etag === video.etag)
+  dispatch({
+    type: DELETE_FAVORITE,
+    payload : removeIndex
+  });
   }
+
+//  const removeIndex =  favoriteVideos.findIndex(vid)
+// splice(removeIndex, 1)
 
   return (
     checked ? (

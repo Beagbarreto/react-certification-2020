@@ -20,8 +20,7 @@ const MainHeader = () => {
           <SearchBar />
         </Col>
         <Col size={1}>
-          <ToggleSwitch
-          />
+          <ToggleSwitch />
         </Col>
         <Col size={1}>
           <LogButton />

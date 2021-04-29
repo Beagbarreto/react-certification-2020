@@ -5,6 +5,7 @@ import {
   TOGGLE_STAR,
   ADD_FAVORITE,
   DELETE_FAVORITE,
+  FAVORITE_VIDEOS,
 } from '../../utils/constants';
 
 const theReducer = (state, action) => {
@@ -20,7 +21,6 @@ const theReducer = (state, action) => {
     case TOGGLE_STAR: {
       return {
         ...state,
-        // starChecked: action.payload
       }
     }
     case LOGGED_USER: {
@@ -33,6 +33,12 @@ const theReducer = (state, action) => {
       return {
         ...state,
         selectedVideo: action.payload
+      }
+    }
+    case FAVORITE_VIDEOS: {
+      return {
+        ...state,
+        favoriteVideos: action.payload
       }
     }
     case ADD_FAVORITE: {

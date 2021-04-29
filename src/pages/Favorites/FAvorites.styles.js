@@ -26,7 +26,6 @@ export const FavTitle = styled.h3`
     font-size: 1.5rem;
     margin: 1.2rem;
   }
-}
 `;
 
 export const NoVideos = styled.h3`
@@ -41,5 +40,4 @@ export const NoVideos = styled.h3`
     font-size: 1.5rem;
     margin: 1.2rem;
   }
-}
 `;

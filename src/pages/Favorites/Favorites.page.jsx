@@ -8,13 +8,6 @@ const Favorites = () => {
   const { state, dispatch } = useStore();
   const { favoriteVideos } = state;
 
-  useEffect(() => {
-    if (storage.get(favoriteVideos) === null) {
-      storage.set(favoriteVideos, { listofVideos: [] });
-    }
-  }, []);
-
-
     return (
       <>
         <FavTitle>

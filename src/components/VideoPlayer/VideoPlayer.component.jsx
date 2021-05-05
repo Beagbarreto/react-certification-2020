@@ -2,15 +2,15 @@ import React from 'react';
 import {
   Display, Hr, Video, TextSection, Title, Description
 } from './VIdeoPlayer.styles';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
+import useStore from '../../providers/Theme';
 
-const VideoPlayer = ({video}) => {
-  console.log('VIDEOuoouoj', video)
-  //const { videoId } = useParams();
-  const videoId = video ? video.id.videoId : 'XhX6HJMwDiI';
+const VideoPlayer = ({videos}) => {
+  let { videoId } = useParams();
+  console.log('WHAT IS VIDEO? ', videos)
   const videoSrc = `https://www.youtube.com/embed/${videoId}`;
-  const title = video ? video.snippet.title : 'Something cool';
-  const description = video ? video.snippet.Description :'is about to happen...';
+  const title = videos ? videos.snippet.title : 'Something cool';
+  const description = videos ? videos.snippet.Description :'is about to happen...';
 
   return (
     <Display >
@@ -24,7 +24,8 @@ const VideoPlayer = ({video}) => {
           {title}</Title>
         <Hr />
         <Description>
-          {description}</Description>
+          {description}
+        </Description>
       </TextSection>
     </Display>
   )

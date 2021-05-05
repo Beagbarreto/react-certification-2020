@@ -1,23 +1,15 @@
 import React, { useContext, useReducer } from 'react';
 import theReducer from './ThemeReducer';
 import { themes } from '../../utils/constants';
-
+import { storage } from '../../utils/storage';
 
 const initState = {
   theme: themes.light, 
-  search: 'wizeline',
-  history: '',
+  favoriteVideos: [],
+  selectedVideo: '',
 }
 
-//initState = {
-//   isDark: Storage.getItem('isDark') ? JSON.parse(storage.getItem('isDark')) : false 
-// }
-
-const TheContext = React.createContext({
-  theme: themes.light,
-  search: '',
-  history: ''
-});
+const TheContext = React.createContext(null);
 
 // const useStoreContext = () => {
   const useStore = () => useContext(TheContext);
@@ -36,6 +28,5 @@ const StoreProvider = ({children}) => {
   )
 }
 
-export { useStore, themes };
+export { useStore, themes, TheContext };
 export default StoreProvider;
-export const Consumer = TheContext.Consumer;

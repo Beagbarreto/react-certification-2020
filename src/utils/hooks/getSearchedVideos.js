@@ -1,17 +1,14 @@
 import { useState, useEffect, useContext } from 'react';
-import axiosService from '../axiosService';
-import {LoaderContext} from './loader';
+import axiosService from '../services/axiosService';
 import mock from '../../mockData/youtube-videos-mock.json';
+import { SEARCH_VIDEOS } from '../constants';
 
-const getSearch = (query) => {
+const getSearch = () => {
   const [videos, setVideos] = useState([]);
-  const { hideLoader, showLoader } = useContext(LoaderContext);
-  const [ search, setSearch ] = useState('wizeline')
-  const [ currentVideo, setCurrentVideo ] = useState(null);
+  const [ currentVideo, setCurrentVideo ] = useState('wizeline');
 
   // const fetchData = async (search) => {
   const fetchData = async () => {
-    showLoader();
     let res;
     try {
       if (process.env.NODE_ENV === 'development') {
@@ -22,15 +19,17 @@ const getSearch = (query) => {
         res = await axiosService.get(`/search`, {
         params: {
           type: 'video',
-          q: search,
+          q: currentVideo,
           videoEmbeddable: 'true',
         }
       })
     }
       console.log('---RES=SEARCH---:', res.data.items)
       setVideos(res.data.items);
-      setCurrentVideo(res.data.items[0])
-      hideLoader();
+      dispatch({ 
+        type: SEARCH_VIDEOS,
+        payload: res.data.items
+      })
     } catch(error) {
         console.log(error, 'Could not retrieve videos')
         error
@@ -38,8 +37,8 @@ const getSearch = (query) => {
     }
 
   useEffect(() => {
-    fetchData(query);
-  }, [query])
+    fetchData();
+  }, [])
 
   return [videos];
 };

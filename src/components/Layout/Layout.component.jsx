@@ -18,8 +18,3 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-
-
-// export const GlobalLayout = styled.global`
-//   background: url(${(props) => props.bg}) no-repeat;
-// `;

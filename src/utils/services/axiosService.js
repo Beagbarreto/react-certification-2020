@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { REACT_APP_YOUTUBE_API_KEY, BASE_URL } from './constants';
+import { REACT_APP_YOUTUBE_API_KEY, BASE_URL } from '../constants';
 
 const KEY = REACT_APP_YOUTUBE_API_KEY;
 
